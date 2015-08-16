@@ -15,9 +15,11 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
-
-        maven {
-            url "https://oss.sonatype.org/content/repositories/snapshots/"
+        mavenCentral()
+        repositories {
+            maven {
+                url "https://oss.sonatype.org/content/repositories/snapshots/"
+            }
         }
     }
 }

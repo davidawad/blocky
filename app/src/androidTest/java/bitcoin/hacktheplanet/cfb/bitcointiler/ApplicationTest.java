@@ -1,4 +1,4 @@
-package com.davidawad.blocky;
+package bitcoin.hacktheplanet.cfb.bitcointiler;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
