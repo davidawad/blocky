@@ -2,6 +2,7 @@ package bitcoin.hacktheplanet.cfb.bitcointiler;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,25 +13,31 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.rengwuxian.materialedittext.MaterialEditText;
+import com.rengwuxian.materialedittext.validation.RegexpValidator;
+
 public class KeySubmit extends AppCompatActivity {
-    public final static String EXTRA_MESSAGE = "bitcoin.hacktheplanet.cfb.bitcointiler.MESSAGE";
 
     Button submitButton;
     EditText publicKey;
     Context context;
     Toast toast;
     String contents;
+    SharedPreferences BlockyPrefs;
+    SharedPreferences.Editor BlockyPrefsEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_key_submit);
+        BlockyPrefs = getSharedPreferences("BlockyPrefs", 0);
         //Set EditText and Button
         submitButton = (Button) findViewById(R.id.key_submit_button);
 
         context = getApplicationContext();
         toast = Toast.makeText(context, "Invalid Public Key", Toast.LENGTH_SHORT);
 
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_key_submit);
+
     }
 
     @Override
@@ -60,7 +67,9 @@ public class KeySubmit extends AppCompatActivity {
         String pkey = publicKey.getText().toString();
         if (pkey.matches("^[13][a-km-zA-HJ-NP-Z0-9]{26,33}$")) {
             Intent pi = new Intent(this, MainActivity.class);
-            pi.putExtra(EXTRA_MESSAGE, pkey);
+            BlockyPrefsEdit = BlockyPrefs.edit();
+            BlockyPrefsEdit.putString("publicKey", pkey).commit();
+            //pi.putExtra(EXTRA_MESSAGE, pkey);
             publicKey.setText("");
             startActivity(pi);
             return true;

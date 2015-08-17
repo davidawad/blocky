@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="magenta_500">#E91E63</color>
+    <color name="indigo_300">#7986CB</color>
     <color name="indigo_500">#3f51b5</color>
     <color name="indigo_700">#303f9f</color>
     <color name="cyan_500">#00bcd4</color>
+    <color name="skyblue">#5A62AC</color>
 </resources>

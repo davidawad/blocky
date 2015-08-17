@@ -24,25 +24,27 @@ core
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
-
+        android:theme="@style/AppTheme" >
         <activity
             android:name=".KeySubmit"
             android:label="@string/app_name" >
+            <!--<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.default" />
+            </intent-filter>-->
+        </activity>
+        <activity android:name=".Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
 
         <activity
             android:name=".MainActivity"
-            android:label="Blocky"
+            android:label="@string/title_activity_main"
             android:parentActivityName=".KeySubmit" >
-
-            <intent-filter>
-                <!-- sets the first activity on load of application -->
-                <category android:name="android.intent.category.LAUNCHER" />
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="bitcoin.hacktheplanet.cfb.bitcointiler.KeySubmit" />
@@ -50,6 +52,16 @@ core
         <activity
             android:name=".PasswordActivity"
             android:label="@string/title_activity_password" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="bitcoin.hacktheplanet.cfb.bitcointiler.MainActivity" />
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="bitcoin.hacktheplanet.cfb.bitcointiler.MainActivity" />
         </activity>
     </application>
 

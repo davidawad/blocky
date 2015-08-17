@@ -2,6 +2,7 @@ package bitcoin.hacktheplanet.cfb.bitcointiler;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,24 +27,25 @@ public class PasswordActivity extends AppCompatActivity {
 
     Intent intent;
     String message;
-    EditText pw1;
-    String pws1;
-    EditText pw2;
-    String pws2;
+    String pw1;
+    String pw2;
     EditText amount;
     String amounts;
     Toast toast;
     Context context;
     public String baseUrl;
     String messfrom;
+    SharedPreferences BlockyPrefs;
+    SharedPreferences.Editor BlockyPrefsEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        intent = getIntent();
-        message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
-        messfrom = intent.getStringExtra(MainActivity.EXTRA_MESSAGE2);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_password);
+        BlockyPrefs = getSharedPreferences("BlockyPrefs", 0);
+        intent = getIntent();
+        message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+
         context = getApplicationContext();
         toast = Toast.makeText(context, "Invalid request", Toast.LENGTH_SHORT);
     }
@@ -71,17 +73,15 @@ public class PasswordActivity extends AppCompatActivity {
     }
 
     public void submitHttp(View view) {
-        pw1 = (EditText) findViewById(R.id.password1);
-        pw2 = (EditText) findViewById(R.id.password2);
+        pw1 = BlockyPrefs.getString("Pw1", "");
+        pw2 = BlockyPrefs.getString("Pw2", "");
         amount = (EditText) findViewById(R.id.input_amount);
-        pws1 = pw1.getText().toString();
-        pws2 = pw2.getText().toString();
         amounts = amount.getText().toString();
 
-        if (amounts.equals("")) {
-            baseUrl = "https://blockchain.info/merchant/" + "a4048b21-1c7b-4498-b7b4-49ac56e33ffe" + "/payment?password="+ pws1 + "&to=" + message + "&amount=" + amounts;
+        if (pw2.equals("")) {
+            baseUrl = "https://blockchain.info/merchant/" + BlockyPrefs.getString("guid", "") + "/payment?password="+ pw1 + "&to=" + message + "&amount=" + amounts;
         } else {
-            baseUrl = "https://blockchain.info/merchant/" + "a4048b21-1c7b-4498-b7b4-49ac56e33ffe" + "/payment?password="+ pws1 + "&second_password="+pws2 +"&to=" + message + "&amount=" + amounts;
+            baseUrl = "https://blockchain.info/merchant/" + BlockyPrefs.getString("guid", "") + "/payment?password="+ pw1 + "&second_password="+pw2 +"&to=" + message + "&amount=" + amounts;
         }
         sendString simple = new sendString();
         Object hold = simple.execute();
