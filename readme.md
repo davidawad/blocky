@@ -2,12 +2,12 @@
 
 
 
-Blocky serves a simple purpose. It adds your Bitcoin Public Key QR code to a place it belongs, as close as your money. 
+Blocky serves a simple purpose. It adds your Bitcoin Public Key QR code to a place it belongs, as accessible as possible. 
 
 It adds your bitcoin wallet to your quick settings! 
 
 
-Because it lives in the System UI you'll never have to wait for your bitcoin app to load ever again.  
+Because it lives in the System UI you'll never have to wait for your bitcoin wallet to load ever again.  
 
 ![](screenshots/Livetile.png)
 
@@ -40,13 +40,13 @@ This Hack couldn't have been possible without the awesome help with the design a
 
 Eric Summins
 
-Chenlei Shen
+[Chenlei Shen](https://github.com/chenleishen93)
 
-Jen Platt
+[Jen Platt](https://www.linkedin.com/pub/jennifer-platt/93/a2/5a6)
 
-Mina Gadalla
+[Mina Gadalla](https://github.com/monmon-2007)
 
-Adnan Begovic (for still teaching me up until 5am)
+Adnan Begovic (for teaching me up until 5am)
 
 
 
