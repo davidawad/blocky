@@ -2,12 +2,12 @@
 
 
 
-Blocky serves a simple purpose. It adds your Bitcoin Public Key QR code to a place it belongs, as accessible as possible. 
-
-It adds your bitcoin wallet to your quick settings! 
+Blocky serves a simple purpose. It adds your Bitcoin Public Key QR code to a place it belongs, to your quick settings! 
 
 
-Because it lives in the System UI you'll never have to wait for your bitcoin wallet to load ever again.  
+Because it lives in the System UI you'll never have to wait for your bitcoin wallet app to load ever again.  
+
+And even if you don't use a mobile wallet you can still take payments!
 
 ![](screenshots/LiveTile.png)
 
@@ -38,7 +38,7 @@ When you put in your public key we make a network call to the Blockchain API to 
 ## Contributors 
 This Hack couldn't have been possible without the awesome help with the design and functionality from my partners and the really kind help from the CyanogenMod team. 
 
-Eric Summins
+[Eric Summins](https://github.com/blink18260000)
 
 [Chenlei Shen](https://github.com/chenleishen93)
 
