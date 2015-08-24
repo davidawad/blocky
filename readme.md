@@ -9,7 +9,7 @@ It adds your bitcoin wallet to your quick settings!
 
 Because it lives in the System UI you'll never have to wait for your bitcoin wallet to load ever again.  
 
-![](screenshots/Livetile.png)
+![](screenshots/LiveTile.png)
 
 ![](screenshots/RemoteView.png)
 
